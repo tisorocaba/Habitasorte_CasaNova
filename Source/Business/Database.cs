@@ -361,9 +361,16 @@ namespace Habitasorte.Business {
             foreach (CandidatoGrupo candidato in candidatosOrdenados) {
 
                 if (candidatoAnterior != null) {
-                    if (tipoOrdenacao == "IDOSOS" && candidato.SuperIdoso != candidatoAnterior.SuperIdoso)
+                    if (tipoOrdenacao == "IDOSOS")
                     {
-                        classificacao++;
+                        if (candidato.SuperIdoso != candidatoAnterior.SuperIdoso)
+                        {
+                            classificacao++;
+                        }
+                        if (candidato.QuantidadeCriterios != candidatoAnterior.QuantidadeCriterios)
+                        {
+                            classificacao++;
+                        }
                     } else
                     if (tipoOrdenacao == "SIMPLES" && candidato.QuantidadeCriterios != candidatoAnterior.QuantidadeCriterios) {
                         classificacao++;
